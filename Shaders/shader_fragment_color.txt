@@ -1,0 +1,14 @@
+//precision mediump float;
+uniform vec4 uBlendColor;
+uniform float uTransparencyValue;
+uniform vec4 uTintColor;
+
+varying vec4 vColor;
+            
+void main()
+{
+	gl_FragColor.x = (vColor.x * (1.0 - uBlendColor.w) + uBlendColor.x * uBlendColor.w) * uTintColor.x;
+	gl_FragColor.y = (vColor.y * (1.0 - uBlendColor.w) + uBlendColor.y * uBlendColor.w) * uTintColor.y;
+	gl_FragColor.z = (vColor.z * (1.0 - uBlendColor.w) + uBlendColor.z * uBlendColor.w) * uTintColor.z;
+	gl_FragColor.w = vColor.w * uTransparencyValue * uTintColor.w;
+}

@@ -1,0 +1,16 @@
+uniform mat4 uPMatrix;
+uniform mat4 uVMatrix;
+uniform mat4 uWorldMatrix;				
+
+
+attribute vec4 aPosition;
+attribute vec2 aTextureCoordinate;
+
+    		
+varying vec2 vTextureCoordinate;
+    		
+void main()
+{
+	vTextureCoordinate = aTextureCoordinate;
+	gl_Position = uPMatrix * uVMatrix * uWorldMatrix * aPosition;
+}
